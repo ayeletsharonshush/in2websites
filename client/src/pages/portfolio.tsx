@@ -1,9 +1,9 @@
 import { useState, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Lock, ArrowRight, ExternalLink, Mail, Phone, ChevronLeft, ChevronRight, Star } from "lucide-react";
-import img1 from "@assets/IMG_6438_1771951452148.PNG";
-import img2 from "@assets/IMG_6442_1771963707319.PNG";
-import img3 from "@assets/IMG_6440_1771951452147.PNG";
+const img1 = "/images/screenshot1.png";
+const img2 = "/images/screenshot2.png";
+const img3 = "/images/screenshot3.png";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { InputOTP, InputOTPGroup, InputOTPSlot } from "@/components/ui/input-otp";

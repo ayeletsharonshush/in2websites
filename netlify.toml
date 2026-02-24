@@ -1,7 +1,10 @@
 [build]
-  command = "npm run build"
+  command = "npx vite build --config vite.config.ts"
   publish = "dist/public"
   functions = "netlify/functions"
+
+[build.environment]
+  NODE_ENV = "production"
 
 [[redirects]]
   from = "/api/contact"

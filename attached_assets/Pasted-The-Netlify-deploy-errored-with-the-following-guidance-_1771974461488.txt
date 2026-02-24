@@ -1,0 +1,93 @@
+The Netlify deploy errored, with the following guidance provided:
+
+**Diagnosis**
+
+- [Line 55](#L55) reports Vite failed to load the project’s `vite.config.ts`.
+- [Line 57](#L57) shows the root cause: Node could not resolve the `vite` package when reading the config, so the build stopped at `npx vite build`.
+
+The log also shows npm’s warning that `vite` is missing and would be temporarily fetched, but because the project imports `vite` within the config, the absence of a locally installed dependency causes the module‑resolution error.
+
+**Solution**
+
+1. Add Vite to your project’s dependencies so it is available during the Netlify build:
+
+   ```bash
+   npm install --save-dev vite@^5
+   ```
+
+   (Adjust the version to match your project’s needs.)
+
+2. Commit the updated `package.json` and lockfile, then push the changes to trigger a new build.
+
+The relevant error logs are:
+
+Line 0: build-image version: 37536fa76164e89826d64a939bb7b7cdbb1c6504 (noble-new-builds)
+Line 1: buildbot version: cc9dd169b8254b16b98ed88f9db2710569aba4fe
+Line 2: Fetching cached dependencies
+Line 3: Failed to fetch cache, continuing with build
+Line 4: Starting to prepare the repo for build
+Line 5: No cached dependencies found. Cloning fresh repo
+Line 6: git clone --filter=blob:none https://github.com/ayeletsharonshush/in2websites
+Line 7: Preparing Git Reference refs/heads/main
+Line 8: Custom functions path detected. Proceeding with the specified path: 'netlify/functions'
+Line 9: Custom build command detected. Proceeding with the specified command: 'npx vite build --config vite.config.ts'
+Line 10: Installing dependencies
+Line 11: mise [36m~/.config/mise/config.toml[0m tools: [34mpython[0m@3.14.3
+Line 12: mise [36m~/.config/mise/config.toml[0m tools: [34mruby[0m@3.4.8
+Line 13: mise [36m~/.config/mise/config.toml[0m tools: [34mgo[0m@1.26.0
+Line 44:   /opt/build/repo/netlify.toml
+Line 45: [36m[1m​[22m[39m
+Line 46: [36m[1m❯ Context[22m[39m
+Line 47:   production
+Line 48: [96m[1m​[22m[39m
+Line 49: [96m[1mbuild.command from netlify.toml                               [22m[39m
+Line 50: [96m[1m────────────────────────────────────────────────────────────────[22m[39m
+Line 51: ​
+Line 52: [36m$ npx vite build --config vite.config.ts[39m
+Line 53: npm warn exec The following package was not found and will be installed: vite@7.3.1
+Line 54: Failed during stage 'building site': Build script returned non-zero exit code: 2
+Line 55: [31mfailed to load config from /opt/build/repo/vite.config.ts[39m
+Line 56: [31merror during build:
+Line 57: Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'vite' imported from /opt/build/repo/node_modules/.vite-temp/vite.config.ts.ti
+Line 58:     at Object.getPackageJSONURL (node:internal/modules/package_json_reader:314:9)
+Line 59:     at packageResolve (node:internal/modules/esm/resolve:767:81)
+Line 60:     at moduleResolve (node:internal/modules/esm/resolve:853:18)
+Line 61:     at defaultResolve (node:internal/modules/esm/resolve:983:11)
+Line 62:     at #cachedDefaultResolve (node:internal/modules/esm/loader:731:20)
+Line 63:     at ModuleLoader.resolve (node:internal/modules/esm/loader:708:38)
+Line 64:     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:310:38)
+Line 65:     at ModuleJob._link (node:internal/modules/esm/module_job:182:49)[39m
+Line 66: [91m[1m​[22m[39m
+Line 67: [91m[1m"build.command" failed                                        [22m[39m
+Line 68: [91m[1m────────────────────────────────────────────────────────────────[22m[39m
+Line 69: ​
+Line 70:   [31m[1mError message[22m[39m
+Line 71:   Command failed with exit code 1: npx vite build --config vite.config.ts
+Line 72: ​
+Line 73:   [31m[1mError location[22m[39m
+Line 74:   In build.command from netlify.toml:
+Line 75:   npx vite build --config vite.config.ts
+Line 76: ​
+Line 77:   [31m[1mResolved config[22m[39m
+Line 78:   build:
+Line 79:     command: npx vite build --config vite.config.ts
+Line 80:     commandOrigin: config
+Line 81:     environment:
+Line 82:       - NODE_ENV
+Line 83:     publish: /opt/build/repo/dist/public
+Line 84:     publishOrigin: config
+Line 85:   functionsDirectory: /opt/build/repo/netlify/functions
+Line 86:   redirects:
+Line 87:     - from: /api/contact
+Line 88:       status: 200
+Line 89:       to: /.netlify/functions/contact
+Line 90:     - from: /api/portfolio/verify
+Line 91:       status: 200
+Line 92:       to: /.netlify/functions/portfolio-verify
+Line 93:     - from: /*
+      status: 200
+      to: /index.html
+  redirectsOrigin: config
+Line 94: Build failed due to a user error: Build script returned non-zero exit code: 2
+Line 95: Failing build: Failed to build site
+Line 96: Finished processing build request in 16.203s

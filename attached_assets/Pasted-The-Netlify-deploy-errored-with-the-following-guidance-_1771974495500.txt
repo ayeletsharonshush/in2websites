@@ -1,0 +1,116 @@
+The Netlify deploy errored, with the following guidance provided:
+
+Diagnosis  
+- The build fails because Vite cannot find the image imported from `client/src/pages/portfolio/...` ([line 59](#L59)). The asset `attached_assets/IMG_6438_1771951452148.PNG` is missing from the repository, so the `vite:asset` plugin throws an `ENOENT` error when it tries to load it. The PostCSS warning that appears just before this is informational and not the cause of the failure.
+
+Solution  
+- Verify that `attached_assets/IMG_6438_1771951452148.PNG` exists locally and that its name (including casing and extension) exactly matches the import.  
+- If the file is present, ensure it is committed and pushed so Netlify can pull it.  
+- If the file should not be imported, remove or update the import statement in your source to reference the correct asset.
+
+The relevant error logs are:
+
+Line 0: build-image version: 37536fa76164e89826d64a939bb7b7cdbb1c6504 (noble-new-builds)
+Line 1: buildbot version: cc9dd169b8254b16b98ed88f9db2710569aba4fe
+Line 2: Fetching cached dependencies
+Line 3: Failed to fetch cache, continuing with build
+Line 4: Starting to prepare the repo for build
+Line 5: No cached dependencies found. Cloning fresh repo
+Line 6: git clone --filter=blob:none https://github.com/ayeletsharonshush/in2websites
+Line 7: Preparing Git Reference refs/heads/main
+Line 8: Custom functions path detected. Proceeding with the specified path: 'netlify/functions'
+Line 9: Installing dependencies
+Line 10: mise [36m~/.config/mise/config.toml[0m tools: [34mpython[0m@3.14.3
+Line 11: mise [36m~/.config/mise/config.toml[0m tools: [34mruby[0m@3.4.8
+Line 12: mise [36m~/.config/mise/config.toml[0m tools: [34mgo[0m@1.26.0
+Line 13: v22.22.0 is already installed.
+Line 46: [96m[1m​[22m[39m
+Line 47: [96m[1mbuild.command from netlify.toml                               [22m[39m
+Line 48: [96m[1m────────────────────────────────────────────────────────────────[22m[39m
+Line 49: ​
+Line 50: [36m$ npm run build[39m
+Line 51: > rest-express@1.0.0 build
+Line 52: > tsx script/build.ts
+Line 53: building client...
+Line 54: [36mvite v7.3.0 [32mbuilding client environment for production...[36m[39m
+Line 55: transforming...
+Line 56: Failed during stage 'building site': Build script returned non-zero exit code: 2
+Line 57: A PostCSS plugin did not pass the `from` option to `postcss.parse`. This may cause imported assets to be incorrectly transformed
+Line 58: [31m✗[39m Build failed in 2.28s
+Line 59: [31m[vite:asset] Could not load /opt/build/repo/attached_assets/IMG_6438_1771951452148.PNG (imported by client/src/pages/portfo
+Line 60: [90m    at async open (node:internal/fs/promises:636:25)[39m
+Line 61: [90m    at async Object.readFile (node:internal/fs/promises:1235:14)[39m
+Line 62:     at async fileToBuiltUrl [90m(/opt/build/repo/[39mnode_modules/[4mvite[24m/dist/node/chunks/config.js:8777:18[90m)[39m
+Line 63:     at async Object.handler [90m(/opt/build/repo/[39mnode_modules/[4mvite[24m/dist/node/chunks/config.js:8671:17[90m)[39m
+Line 64:     at async PluginDriver.hookFirstAndGetPlugin [90m(/opt/build/repo/[39mnode_modules/[4mrollup[24m/dist/es/shared/node-entr
+Line 65:     at async <anonymous> [90m(/opt/build/repo/[39mnode_modules/[4mrollup[24m/dist/es/shared/node-entry.js:21376:33[90m)[39
+Line 66:     at async Queue.work [90m(/opt/build/repo/[39mnode_modules/[4mrollup[24m/dist/es/shared/node-entry.js:22604:32[90m)[39m
+Line 67:   errno: [33m-2[39m,
+Line 68:   code: [32m'PLUGIN_ERROR'[39m,
+Line 69:   syscall: [32m'open'[39m,
+Line 70:   path: [32m'/opt/build/repo/attached_assets/IMG_6438_1771951452148.PNG'[39m,
+Line 71:   pluginCode: [32m'ENOENT'[39m,
+Line 72:   plugin: [32m'vite:asset'[39m,
+Line 73:   hook: [32m'load'[39m,
+Line 74:   watchFiles: [
+Line 75:     [32m'/opt/build/repo/client/index.html'[39m,
+Line 76:     [32m'/opt/build/repo/client/src/main.tsx'[39m,
+Line 77:     [32m'/opt/build/repo/package.json'[39m,
+Line 78:     [32m'/opt/build/repo/node_modules/react/jsx-runtime.js'[39m,
+Line 153:     [32m'/opt/build/repo/node_modules/@tanstack/react-query/build/modern/useQueries.js'[39m,
+Line 154:     [32m'/opt/build/repo/node_modules/@tanstack/react-query/build/modern/useQuery.js'[39m,
+Line 155:     [32m'/opt/build/repo/node_modules/@tanstack/react-query/build/modern/useSuspenseInfiniteQuery.js'[39m,
+Line 156:     [32m'/opt/build/repo/node_modules/@tanstack/react-query/build/modern/useSuspenseQueries.js'[39m,
+Line 157:     [32m'/opt/build/repo/node_modules/@tanstack/react-query/build/modern/usePrefetchQuery.js'[39m,
+Line 158:     [32m'/opt/build/repo/node_modules/@tanstack/react-query/build/modern/usePrefetchInfiniteQuery.js'[39m,
+Line 159:     [32m'/opt/build/repo/node_modules/@tanstack/react-query/build/modern/queryOptions.js'[39m,
+Line 160:     [32m'/opt/build/repo/node_modules/@tanstack/react-query/build/modern/infiniteQueryOptions.js'[39m,
+Line 161:     [32m'/opt/build/repo/node_modules/@tanstack/react-query/build/modern/QueryClientProvider.js'[39m,
+Line 162:     [32m'/opt/build/repo/node_modules/@tanstack/react-query/build/modern/HydrationBoundary.js'[39m,
+Line 163:     [32m'/opt/build/repo/node_modules/@tanstack/react-query/build/modern/QueryErrorResetBoundary.js'[39m,
+Line 164:     [32m'/opt/build/repo/node_modules/@tanstack/react-query/build/modern/useIsFetching.js'[39m,
+Line 165:     [32m'/opt/build/repo/node_modules/@tanstack/react-query/build/modern/useMutation.js'[39m,
+Line 166:     [32m'/opt/build/repo/node_modules/@tanstack/react-query/build/modern/useInfiniteQuery.js'[39m,
+Line 167:     [32m'/opt/build/repo/node_modules/@tanstack/react-query/build/modern/isRestoring.js'[39m,
+Line 168:     [32m'/opt/build/repo/node_modules/@tanstack/react-query/build/modern/useMutationState.js'[39m,
+Line 169:     [32m'/opt/build/repo/node_modules/scheduler/index.js'[39m,
+Line 170:     [32m'/opt/build/repo/node_modules/react/cjs/react.production.min.js'[39m,
+Line 171:     [32m'/opt/build/repo/node_modules/lucide-react/dist/esm/lucide-react.js'[39m,
+Line 172:     [32m'/opt/build/repo/node_modules/framer-motion/dist/es/index.mjs'[39m,
+Line 173:     [32m'/opt/build/repo/node_modules/@radix-ui/react-tooltip/dist/index.mjs'[39m,
+Line 174:     [32m'/opt/build/repo/node_modules/use-sync-external-store/shim/index.js'[39m,
+Line 175:     ... 998 more items
+Line 176:   ]
+Line 177: }
+Line 178: [91m[1m​[22m[39m
+Line 179: [91m[1m"build.command" failed                                        [22m[39m
+Line 180: [91m[1m────────────────────────────────────────────────────────────────[22m[39m
+Line 181: ​
+Line 182:   [31m[1mError message[22m[39m
+Line 183:   Command failed with exit code 1: npm run build
+Line 184: ​
+Line 185:   [31m[1mError location[22m[39m
+Line 186:   In build.command from netlify.toml:
+Line 187:   npm run build
+Line 188: ​
+Line 189:   [31m[1mResolved config[22m[39m
+Line 190:   build:
+Line 191:     command: npm run build
+Line 192:     commandOrigin: config
+Line 193:     publish: /opt/build/repo/dist/public
+Line 194:     publishOrigin: config
+Line 195:   functionsDirectory: /opt/build/repo/netlify/functions
+Line 196:   redirects:
+Line 197:     - from: /api/contact
+Line 198:       status: 200
+Line 199:       to: /.netlify/functions/contact
+Line 200:     - from: /api/portfolio/verify
+Line 201:       status: 200
+Line 202:       to: /.netlify/functions/portfolio-verify
+Line 203:     - from: /*
+      status: 200
+      to: /index.html
+  redirectsOrigin: config
+Line 204: Build failed due to a user error: Build script returned non-zero exit code: 2
+Line 205: Failing build: Failed to build site
+Line 206: Finished processing build request in 17.194s

@@ -418,6 +418,9 @@ export default function About() {
             <p className="text-xs text-white/70 text-center font-medium">
               — Sharon Stuhl, Owner, Stuhl Services LLC
             </p>
+            <a href="https://www.stuhlservices.com" target="_blank" rel="noopener noreferrer" className="block text-center mt-3 text-xs text-teal-400 hover:text-teal-300 transition-colors" data-testid="link-stuhl-reference">
+              www.stuhlservices.com
+            </a>
           </motion.div>
         </motion.div>
       </section>

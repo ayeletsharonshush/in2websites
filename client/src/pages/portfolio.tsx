@@ -112,8 +112,7 @@ function CaseStudyCarousel() {
 
   return (
     <div data-testid="card-project-featured">
-      <h3 className="text-sm md:text-base font-medium text-white/80 text-center mb-3 uppercase tracking-wider">Home Remodeling Company</h3>
-      <div className="relative flex items-center justify-center h-[320px] sm:h-[420px] md:h-[520px]" style={{ perspective: "1200px" }}>
+      <div className="relative flex items-center justify-center h-[420px] sm:h-[530px] md:h-[620px]" style={{ perspective: "1200px" }}>
         <button
           onClick={prev}
           className="absolute left-2 sm:left-0 z-40 w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
@@ -122,7 +121,7 @@ function CaseStudyCarousel() {
           <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
         </button>
 
-        <div className="relative w-full max-w-[220px] sm:max-w-xs md:max-w-sm h-[280px] sm:h-[380px] md:h-[480px]">
+        <div className="relative w-[236px] sm:w-[300px] md:w-[350px] h-[420px] sm:h-[530px] md:h-[620px]">
           {carouselImages.map((image, index) => {
             const style = getCardStyle(index);
             return (
@@ -197,7 +196,7 @@ function CaseStudyCarousel() {
         <a href="https://stuhlservices.com" target="_blank" rel="noopener noreferrer">
           <Button
             size="lg"
-            className="rounded-full px-6 bg-white/30 border border-white/50 text-white hover:bg-white/40 uppercase text-xs tracking-wider font-medium gap-2"
+            className="rounded-lg px-6 bg-white/30 border border-white/50 text-white hover:bg-white/40 uppercase text-xs tracking-wider font-medium gap-2"
             data-testid="button-visit-site"
           >
             See Reference Site
@@ -207,9 +206,9 @@ function CaseStudyCarousel() {
       </div>
 
       <div className="mt-6 text-center max-w-lg mx-auto" data-testid="text-stuhl-description">
-        <h3 className="text-xl font-bold text-white mb-2">Stuhl Services</h3>
+        <h3 className="text-xl font-bold text-white mb-2">The High-End Finish</h3>
         <p className="text-sm text-white/85 leading-relaxed">
-          A complete website transformation — modernizing their online presence to better showcase their professional services and drive customer engagement.
+          Stuhl Services already provided professional work, they just needed a website to match. We remodeled their online presence from the ground up, turning a basic site into a lead-generating showcase that impresses every potential client who visits.
         </p>
       </div>
 
@@ -229,7 +228,7 @@ function CaseStudyCarousel() {
 
       <div className="mt-8 text-center max-w-lg mx-auto p-5 rounded-xl bg-white/5 border border-white/10" data-testid="card-help-cta">
         <p className="text-sm text-white/85 leading-relaxed italic">
-          Don't have a website, don't have a domain, not sure...? Contact us — we are happy to help set it all up for you!
+          No website? No domain? No worries. We specialize in total setups for new businesses. Contact us today and we'll get your digital presence built right the first time.
         </p>
         <div className="mt-3">
           <Link href="/contact">
@@ -409,7 +408,7 @@ export default function Portfolio() {
       >
         <motion.div variants={fadeUp} className="text-center mb-8">
           <p className="text-white max-w-lg mx-auto text-2xl md:text-3xl font-semibold" data-testid="text-portfolio-title">
-            See how we transform websites into powerful business tools.
+            Transform home remodeling website into powerful business tool.
           </p>
         </motion.div>
 
@@ -440,7 +439,7 @@ export default function Portfolio() {
 
         <motion.div variants={fadeUp} className="text-center mt-8">
           <p className="text-white/85 mb-4">
-            Want your website to be our next success story?
+            We want your website to be our next success story!
           </p>
           <Link href="/contact">
             <Button size="lg" className="bg-teal-600 hover:bg-teal-500 text-white border-0" data-testid="button-portfolio-contact">

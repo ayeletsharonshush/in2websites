@@ -7,7 +7,7 @@ export default function Footer() {
           <img src="/images/in2websites-logo.png" alt="In2Websites" className="w-full max-w-sm object-contain -my-10" style={{ mixBlendMode: 'lighten' }} />
         </div>
         <p className="text-xs text-white/80" data-testid="text-copyright">
-          2026 in2websites. All rights reserved.
+          2020 in2websites. All rights reserved.
         </p>
       </div>
     </footer>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Zap, Palette, TrendingUp, Heart, Users, Award, Clock, Star } from "lucide-react";
+import { ArrowUpRight, Zap, Palette, TrendingUp, Heart, Users, Award, Clock, Star, Search, Wrench, Rocket } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "wouter";
@@ -15,23 +15,6 @@ const stagger = {
   animate: { transition: { staggerChildren: 0.1 } },
 };
 
-const services = [
-  {
-    icon: Palette,
-    title: "Visual Redesign",
-    description: "We transform outdated layouts into modern, eye-catching designs that showcase your products and services.",
-  },
-  {
-    icon: Zap,
-    title: "Performance Boost",
-    description: "Un-proffesional and slow sites turn customers away. We optimize everything for lightning-fast load times and smooth interactions.",
-  },
-  {
-    icon: TrendingUp,
-    title: "Conversion Focus",
-    description: "Beautiful is not enough. Every element is strategically placed to drive your customers to contact you.",
-  },
-];
 
 const stats = [
   { icon: Clock, value: "1 Week", label: "Avg. Turnaround" },
@@ -219,7 +202,7 @@ export default function About() {
             data-testid="text-hero-title"
           >
             We turn standard sites into a{" "}
-            <span className="bg-gradient-to-r from-red-600 via-pink-500 to-cyan-400 bg-clip-text text-transparent">premium digital showcase</span>{" "}
+            <span className="text-teal-400 font-extrabold">premium digital showcase</span>{" "}
             of your business.
           </motion.h1>
 
@@ -228,22 +211,20 @@ export default function About() {
             className="text-base text-white/70 max-w-xl mx-auto mb-8 leading-relaxed"
             data-testid="text-hero-description"
           >
-            Your website is your first impression. We specialize in taking outdated, 
-            uninspiring websites and transforming them into engaging, modern experiences 
-            that your visitors will love.
+            Your craftsmanship is high-caliber; your business deserves a digital presence to match. We turn "just okay" sites into lead-generating, premium assets that do your work justice, ensuring that when a client visits, they're impressed enough to call you immediately.
           </motion.p>
 
           <motion.div variants={fadeUp} className="flex items-center justify-center gap-4">
             <Link href="/contact">
-              <Button size="lg" className="rounded-full px-6 bg-transparent border border-white/20 text-white hover:bg-white/10 uppercase text-xs tracking-wider font-medium" data-testid="button-lets-talk">
+              <Button size="lg" className="rounded-lg px-8 py-3 bg-teal-600 hover:bg-teal-500 text-white border-0 text-sm font-semibold gap-2" data-testid="button-lets-talk">
                 Get a Quote
-                <ArrowUpRight className="w-4 h-4 ml-2" />
+                <ArrowUpRight className="w-4 h-4" />
               </Button>
             </Link>
             <Link href="/portfolio">
-              <Button size="lg" className="rounded-full px-6 bg-transparent border border-white/20 text-white hover:bg-white/10 uppercase text-xs tracking-wider font-medium" data-testid="button-view-work">
+              <Button size="lg" className="rounded-lg px-8 py-3 bg-teal-600 hover:bg-teal-500 text-white border-0 text-sm font-semibold gap-2" data-testid="button-view-work">
                 Our Work
-                <ArrowUpRight className="w-4 h-4 ml-2" />
+                <ArrowUpRight className="w-4 h-4" />
               </Button>
             </Link>
           </motion.div>
@@ -260,34 +241,43 @@ export default function About() {
         >
           <motion.div variants={fadeUp} className="text-center mb-10">
             <h2 className="text-3xl font-bold tracking-tight mb-4" data-testid="text-services-title">
-              What We Do
+              The Transformation
             </h2>
             <p className="text-white/70 max-w-lg mx-auto">
-              A complete website transformation, from visual design to performance optimization.
+              We treat your website like a high-stakes renovation, taking the "bones" you already have and giving them a premium, lead-generating finish.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {services.map((service, i) => (
-              <motion.div key={service.title} variants={fadeUp}>
-                <Card className="h-full hover-elevate group bg-white/5 border-white/10" data-testid={`card-service-${i}`}>
-                  <CardContent className="p-6">
-                    <div className="flex items-start gap-4">
-                      <div className="w-10 h-10 rounded-md bg-teal-500/15 flex items-center justify-center shrink-0">
-                        <service.icon className="w-5 h-5 text-teal-400" />
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-semibold mb-2 text-white">{service.title}</h3>
-                        <p className="text-sm text-white/70 leading-relaxed">
-                          {service.description}
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
+          <motion.div variants={fadeUp} className="max-w-2xl mx-auto mb-12 overflow-hidden rounded-xl border border-white/10">
+            <table className="w-full text-sm" data-testid="table-before-after">
+              <thead>
+                <tr className="border-b border-white/10">
+                  <th className="text-left p-4 text-white/50 font-medium">The "Before" (Standard)</th>
+                  <th className="text-left p-4 text-teal-400 font-medium">The "After" (Premium)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b border-white/5">
+                  <td className="p-4 text-white/60">Slow-loading, cluttered pages.</td>
+                  <td className="p-4 text-white/90">Lightning-fast, high-performance design.</td>
+                </tr>
+                <tr className="border-b border-white/5">
+                  <td className="p-4 text-white/60">Buried project photos.</td>
+                  <td className="p-4 text-white/90">High-definition galleries that sell your craft.</td>
+                </tr>
+                <tr className="border-b border-white/5">
+                  <td className="p-4 text-white/60">Hard to find the "Call" button.</td>
+                  <td className="p-4 text-white/90">One-tap calling and instant lead forms.</td>
+                </tr>
+                <tr>
+                  <td className="p-4 text-white/60">Looks "just okay" on a phone.</td>
+                  <td className="p-4 text-white/90">Perfectly mobile-responsive for clients on the go.</td>
+                </tr>
+              </tbody>
+            </table>
+          </motion.div>
+
+          
         </motion.div>
 
         <motion.div
@@ -299,51 +289,52 @@ export default function About() {
         >
           <motion.div variants={fadeUp} className="text-center mb-10">
             <h2 className="text-3xl font-bold tracking-tight mb-4" data-testid="text-process-title">
-              Our Process
+              Rapid Refresh Process
             </h2>
             <p className="text-white/70 max-w-lg mx-auto">
-              Simple, transparent, and effective. Here's how we bring your website back to life.
+              We know you're busy, our process is designed to be low-friction and high-speed:
             </p>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-3 gap-6">
             {[
               {
-                step: "01",
-                title: "Audit & Discover",
-                desc: "We analyze your current site, understand your brand, goals, and audience.",
+                icon: Search,
+                title: "The Digital Walkthrough",
+                desc: "We review your current site and identify exactly what needs a \"high-end finish.\"",
               },
               {
-                step: "02",
-                title: "Design & Build",
-                desc: "Our team crafts a stunning new design and builds it with modern technology for speed and reliability.",
+                icon: Wrench,
+                title: "The Premium Build",
+                desc: "We overhaul your layout, optimize your photos, and install lead-generation tools.",
               },
               {
-                step: "03",
-                title: "Hosting & Domain",
-                desc: "We focus on efficiency so reducing your hosting and domain costs is what we do best.",
-              },
-              {
-                step: "04",
-                title: "Launch & Grow",
-                desc: "We deploy your new site and provide ongoing support to ensure it continues to perform beautifully.",
+                icon: Rocket,
+                title: "The Final Reveal",
+                desc: "Your site goes live in days, not weeks ready to impress every client who visits.",
               },
             ].map((item, i) => (
-              <motion.div key={item.step} variants={fadeUp} className="flex items-start gap-4" data-testid={`step-${i}`}>
-                <span className="text-4xl font-bold bg-gradient-to-b from-teal-400 to-teal-400/20 bg-clip-text text-transparent select-none shrink-0 w-12">
-                  {item.step}
-                </span>
-                <div>
-                  <h3 className="text-lg font-semibold mb-2 text-white">{item.title}</h3>
-                  <p className="text-sm text-white/70 leading-relaxed">{item.desc}</p>
-                </div>
+              <motion.div key={item.title} variants={fadeUp}>
+                <Card className="h-full hover-elevate group bg-white/5 border-white/10" data-testid={`step-${i}`}>
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-md bg-teal-500/15 flex items-center justify-center shrink-0">
+                        <item.icon className="w-5 h-5 text-teal-400" />
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-semibold mb-2 text-white">{item.title}</h3>
+                        <p className="text-sm text-white/70 leading-relaxed">{item.desc}</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
               </motion.div>
             ))}
           </div>
 
           <motion.div variants={fadeUp} className="mt-10 text-center max-w-lg mx-auto p-5 rounded-xl bg-white/5 border border-white/10" data-testid="card-help-cta-home">
             <p className="text-sm text-white/85 leading-relaxed italic">
-              Don't have a website, don't have a domain, not sure...? Contact us — we are happy to help set it all up for you!
+              No website? No domain? No worries. We specialize in total setups for new businesses. Contact us today and we'll get your digital presence built right the first time.
             </p>
             <div className="mt-3">
               <Link href="/contact">
@@ -412,7 +403,7 @@ export default function About() {
               ))}
             </div>
             <p className="text-sm text-white/85 leading-relaxed italic text-center mb-3">
-              "Letting In2Websites remodel our website was an easy decision. In less then a week, our boring old website turned into slick and professional representation of the services we provides. New customers always comment on how great the website looks saying it was one of the main reasons they reached out."
+              "In2Websites took our 'just okay' site and gave it a high-caliber finish in record time. The transformation was incredible. Now, our website actually does our craftsmanship justice—and the best part? New customers tell us the professional look of the site is exactly why they called us."
             </p>
             <p className="text-xs text-white/70 text-center font-medium">
               — Sharon Stuhl, Owner, Stuhl Services LLC

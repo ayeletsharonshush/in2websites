@@ -218,10 +218,9 @@ export default function About() {
             className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-[1.1] mb-5"
             data-testid="text-hero-title"
           >
-            We turn{" "}
-            <span className="text-white/70 line-through decoration-2">boring</span>{" "}
-            into{" "}
-            <span className="bg-gradient-to-r from-red-600 via-pink-500 to-cyan-400 bg-clip-text text-transparent text-5xl sm:text-6xl md:text-8xl">brilliant</span>
+            We turn standard sites into a{" "}
+            <span className="bg-gradient-to-r from-red-600 via-pink-500 to-cyan-400 bg-clip-text text-transparent">premium digital showcase</span>{" "}
+            of your business.
           </motion.h1>
 
           <motion.p

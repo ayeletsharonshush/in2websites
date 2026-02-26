@@ -19,7 +19,7 @@ const stagger = {
 const stats = [
   { icon: Clock, value: "1 Week", label: "Avg. Turnaround" },
   { icon: Users, value: "150+", label: "Clients Served" },
-  { icon: Heart, value: "50%", label: "Calls/Emails From Site" },
+  { icon: Heart, value: "+50%", label: "Calls/Emails From Site" },
   { icon: Award, value: "100%", label: "Satisfaction Rate" },
 ];
 
@@ -403,7 +403,7 @@ export default function About() {
               ))}
             </div>
             <p className="text-sm text-white/85 leading-relaxed italic text-center mb-3">
-              "In2Websites took our 'just okay' site and gave it a high-caliber finish in record time. The transformation was incredible. Now, our website actually does our craftsmanship justice—and the best part? New customers tell us the professional look of the site is exactly why they called us."
+              "Letting In2Websites remodel our website was an easy decision. In less then a week, our boring old website turned into slick and professional representation of the services we provides. New customers always comment on how great the website looks saying it was one of the main reasons they reached out."
             </p>
             <p className="text-xs text-white/70 text-center font-medium">
               — Sharon Stuhl, Owner, Stuhl Services LLC
